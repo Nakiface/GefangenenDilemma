@@ -9,19 +9,20 @@ namespace GefangenenDilemma
         public int punishmentP1 { get; set; }
         public int punishmentP2 { get; set; }
         public ICrimeMode punsiment { get; set; }
+        public IPrisonersDilemma player1 { get; set; }
+        public IPrisonersDilemma player2 { get; set; }
 
-        public GameOneVsOne(int rounds, Crime crime)
+        public GameOneVsOne(int rounds, Crime crime, IPrisonersDilemma player1, IPrisonersDilemma player2)
         {
             this.rounds = rounds;
             this.crime = crime;
+            this.player1 = player1;
+            this.player2 = player2;
             punsiment = CrimeMode.Set(crime);
         }
 
         public void Play()
         {
-            IPrisonersDilemma player1 = new PrisonerTacticOnlyConfess();
-            IPrisonersDilemma player2 = new PrisonerTacticOnlyDeny();
-
             var ReactionPlayer1 = Reaction.FirstRound;
             var ReactionPlayer2 = Reaction.FirstRound;
             Reaction temp;

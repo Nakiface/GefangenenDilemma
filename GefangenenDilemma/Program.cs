@@ -10,9 +10,9 @@ namespace GefangenenDilemma
         static void Main(string[] args)
         {
             var rounds = 7;
-            var crime = Crime.Medium;
+            var crime = Crime.Easy;
 
-            var Game = new GameOneVsOne(rounds, crime);
+            var Game = new GameOneVsOne(rounds, crime, new PrisonerTacticOnlyDeny(), new PrisonerTacticOnlyDeny());
             Game.Play();
         }
     }
